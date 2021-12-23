@@ -20,3 +20,4 @@ v0.5.0 @wplaat
 - Improve data model (sequence are now unique per table)
 - Switch of json library. Make code better readable
 - Add missing products
+- Upgrade Log4j to 2.17.0
