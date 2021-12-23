@@ -35,7 +35,8 @@ public class ScoreDao {
      *
      * @return the list
      */
-    public List<Score> findAll() {
+    @SuppressWarnings("unchecked")
+	public List<Score> findAll() {
         return entityManager.createQuery("from Score").getResultList();
     }
    
@@ -78,12 +79,12 @@ public class ScoreDao {
      * @param Score the Score
      * @return the optional
      */
-    public Optional<Score> save(Score Score) {
+    public Optional<Score> save(Score score) {
         try {
             entityManager.getTransaction().begin();
-            entityManager.persist(Score);
+            entityManager.persist(score);
             entityManager.getTransaction().commit();
-            return Optional.of(Score);
+            return Optional.of(score);
         } catch (Exception e) {
             log.error(e.getMessage());
         }

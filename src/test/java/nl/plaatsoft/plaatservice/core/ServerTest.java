@@ -1,6 +1,6 @@
 package nl.plaatsoft.plaatservice.core;
 
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertEquals;
 
 import java.io.IOException;
 
@@ -81,7 +81,7 @@ public class ServerTest {
 		  
 		  HttpResponse response = client.execute(request);	     
 		  	      
-	      assertTrue(response.getStatusLine().getStatusCode() == 200);
+	      assertEquals(200, response.getStatusLine().getStatusCode());
 	     
 	      client.close();
 	      after();     
@@ -105,7 +105,7 @@ public class ServerTest {
 		  
 		  HttpResponse response = client.execute(request);	    
 		  	      
-	      assertTrue(response.getStatusLine().getStatusCode() == 200);
+		  assertEquals(200, response.getStatusLine().getStatusCode());
 	      
 	      client.close();
 	      after();
@@ -128,7 +128,7 @@ public class ServerTest {
 		  
 		  HttpResponse response = client.execute(request);	    
 		  
-	      assertTrue(response.getStatusLine().getStatusCode() == 200);
+		  assertEquals(200, response.getStatusLine().getStatusCode());
 	      
 	      client.close();
 	      after();
@@ -151,7 +151,7 @@ public class ServerTest {
 		  
 		  HttpResponse response = client.execute(request);	    
 		  
-	      assertTrue(response.getStatusLine().getStatusCode() == 200);
+		  assertEquals(200, response.getStatusLine().getStatusCode());
 	      
 	      client.close();
 	      after();
@@ -173,7 +173,7 @@ public class ServerTest {
 		  request.addHeader("accept", "application/json");	          		  
 		  HttpResponse response1 = client1.execute(request);	   
 		  
-		  assertTrue(response1.getStatusLine().getStatusCode() == 200);
+		  assertEquals(200, response1.getStatusLine().getStatusCode());
 		  
 		  client1.close();
 		  
@@ -186,7 +186,7 @@ public class ServerTest {
 		  request2.addHeader("accept", "application/json");	          		  
 		  HttpResponse response2 = client2.execute(request2);	   
 		  	      
-	      assertTrue(response2.getStatusLine().getStatusCode() == 200);
+		  assertEquals(200, response2.getStatusLine().getStatusCode());
 	      
 	      client2.close();
 		  
@@ -199,7 +199,7 @@ public class ServerTest {
 		  request3a.addHeader("accept", "application/json");	          		  
 		  HttpResponse response3a = client3a.execute(request3a);	   
 	 
-	      assertTrue(response3a.getStatusLine().getStatusCode() == 200);
+		  assertEquals(200, response3a.getStatusLine().getStatusCode());
 	      
 	      client3a.close();
 	      
@@ -212,7 +212,7 @@ public class ServerTest {
 		  request3b.addHeader("accept", "application/json");	          		  
 		  HttpResponse response3b = client3b.execute(request3b);	   
 	 
-	      assertTrue(response3b.getStatusLine().getStatusCode() == 200);
+		  assertEquals(200, response3b.getStatusLine().getStatusCode());
 	      
 	      client3b.close();
 	      
@@ -225,7 +225,7 @@ public class ServerTest {
 		  request3c.addHeader("accept", "application/json");	          		  
 		  HttpResponse response3c = client3c.execute(request3c);	   
 	 
-	      assertTrue(response3c.getStatusLine().getStatusCode() == 200);
+		  assertEquals(200, response3c.getStatusLine().getStatusCode());
 	      	      
 	      client3c.close();
 	      
@@ -238,7 +238,7 @@ public class ServerTest {
 		  request4.addHeader("accept", "application/json");	          		  
 		  HttpResponse response4 = client4.execute(request4);	   
 		  		  
-	      assertTrue(response4.getStatusLine().getStatusCode() == 200);
+		  assertEquals(200, response4.getStatusLine().getStatusCode());
 	      
 	      client4.close();
 	      
@@ -261,7 +261,7 @@ public class ServerTest {
 		  request.addHeader("accept", "application/json");	          		  
 		  HttpResponse response1 = client1.execute(request);	   
 		  
-		  assertTrue(response1.getStatusLine().getStatusCode() == 200);
+		  assertEquals(200, response1.getStatusLine().getStatusCode());
 		  
 		  client1.close();
 		  
@@ -274,7 +274,7 @@ public class ServerTest {
 		  request2.addHeader("accept", "application/json");	          		  
 		  HttpResponse response2 = client2.execute(request2);	   
 		  	      
-	      assertTrue(response2.getStatusLine().getStatusCode() == 200);
+		  assertEquals(200, response2.getStatusLine().getStatusCode());
 	      	     
 	      client2.close();
 	      
@@ -287,7 +287,7 @@ public class ServerTest {
 		  request3a.addHeader("accept", "application/json");	          		  
 		  HttpResponse response3a = client3a.execute(request3a);	   
 	 
-	      assertTrue(response3a.getStatusLine().getStatusCode() == 200);
+		  assertEquals(200, response3a.getStatusLine().getStatusCode());
 	      
 	      client3a.close();
 	      
@@ -300,7 +300,7 @@ public class ServerTest {
 		  request3b.addHeader("accept", "application/json");	          		  
 		  HttpResponse response3b = client3b.execute(request3b);	   
 	 
-	      assertTrue(response3b.getStatusLine().getStatusCode() == 200);
+		  assertEquals(200, response3b.getStatusLine().getStatusCode());
 	      
 	      client3b.close();
 	      
@@ -313,7 +313,7 @@ public class ServerTest {
 		  request3c.addHeader("accept", "application/json");	          		  
 		  HttpResponse response3c = client3c.execute(request3c);	   
 	 
-	      assertTrue(response3c.getStatusLine().getStatusCode() == 200);
+		  assertEquals(200, response3c.getStatusLine().getStatusCode());
 	      	      
 	      client3c.close();
 	      
@@ -326,7 +326,7 @@ public class ServerTest {
 		  request4.addHeader("accept", "application/json");	          		  
 		  HttpResponse response4 = client4.execute(request4);	   
 		  		  
-	      assertTrue(response4.getStatusLine().getStatusCode() == 200);
+		  assertEquals(200, response4.getStatusLine().getStatusCode());
 	      
 	      client4.close();
 	      

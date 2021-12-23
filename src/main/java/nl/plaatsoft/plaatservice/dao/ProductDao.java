@@ -37,7 +37,8 @@ public class ProductDao {
      *
      * @return the list
      */
-    public List<Product> findAll() {
+    @SuppressWarnings("unchecked")
+	public List<Product> findAll() {
         return entityManager.createQuery("from Product").getResultList();
     }
    
