@@ -1,3 +1,3 @@
-call mvn clean deploy -DskipTests=true
+call mvn install -DskipTests=true
 
 pause
