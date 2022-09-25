@@ -8,6 +8,8 @@ import java.util.Optional;
 
 import org.junit.Test;
 
+import nl.plaatsoft.plaatservice.model.Product;
+
 /**
  * The Class ProductDaoTest.
  * 

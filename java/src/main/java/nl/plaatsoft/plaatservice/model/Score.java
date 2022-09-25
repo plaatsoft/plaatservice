@@ -1,4 +1,4 @@
-package nl.plaatsoft.plaatservice.dao;
+package nl.plaatsoft.plaatservice.model;
 
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -14,7 +14,7 @@ import javax.persistence.Table;
  * @author wplaat
  */
 @Entity
-@Table(name = "score")
+@Table(name = "scores")
 public class Score {
 
 	/** The sid. */

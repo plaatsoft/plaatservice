@@ -10,6 +10,8 @@ import javax.persistence.NonUniqueResultException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import nl.plaatsoft.plaatservice.model.Product;
+
 /**
  * The Class ProductDao.
  * 

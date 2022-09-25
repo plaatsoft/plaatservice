@@ -10,6 +10,10 @@ import org.apache.logging.log4j.Logger;
 
 import org.junit.Test;
 
+import nl.plaatsoft.plaatservice.model.Product;
+import nl.plaatsoft.plaatservice.model.Score;
+import nl.plaatsoft.plaatservice.model.User;
+
 
 /**
  * The Class ScoreDaoTest.

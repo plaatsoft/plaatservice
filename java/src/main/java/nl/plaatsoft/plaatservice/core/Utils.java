@@ -15,9 +15,9 @@ import org.apache.logging.log4j.Logger;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import nl.plaatsoft.plaatservice.dao.Product;
-import nl.plaatsoft.plaatservice.dao.Score;
-import nl.plaatsoft.plaatservice.dao.User;
+import nl.plaatsoft.plaatservice.model.Product;
+import nl.plaatsoft.plaatservice.model.Score;
+import nl.plaatsoft.plaatservice.model.User;
 
 /**
  * The Class Utils.

@@ -24,3 +24,7 @@ v0.5.0 @wplaat
 - Upgrade H2 to 2.0.202
 - Upgrade junit to 4.13.1
 - Upgrade httpclient to 4.5.13
+
+v0.5.1 @wplaat
+- Upgrade POMs to latest version
+- Rename tables names else H2 does not like it

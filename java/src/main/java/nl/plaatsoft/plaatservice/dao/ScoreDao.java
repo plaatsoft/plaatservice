@@ -8,6 +8,10 @@ import javax.persistence.EntityManager;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import nl.plaatsoft.plaatservice.model.Product;
+import nl.plaatsoft.plaatservice.model.Score;
+import nl.plaatsoft.plaatservice.model.User;
+
 /**
  * The Class ScoreDao.
  * 

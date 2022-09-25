@@ -1,4 +1,4 @@
-package nl.plaatsoft.plaatservice.dao;
+package nl.plaatsoft.plaatservice.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -12,7 +12,7 @@ import javax.persistence.Table;
  * @author wplaat
  */
 @Entity
-@Table(name = "product")
+@Table(name = "products")
 public class Product {
     
 	/** The pid. */
