@@ -1,0 +1,11 @@
+nl\plaatsoft\plaatservice\core\Utils.class
+nl\plaatsoft\plaatservice\core\Server.class
+nl\plaatsoft\plaatservice\core\General.class
+nl\plaatsoft\plaatservice\core\Server$1.class
+nl\plaatsoft\plaatservice\dao\Product.class
+nl\plaatsoft\plaatservice\core\Config.class
+nl\plaatsoft\plaatservice\dao\User.class
+nl\plaatsoft\plaatservice\dao\ScoreDao.class
+nl\plaatsoft\plaatservice\dao\Score.class
+nl\plaatsoft\plaatservice\dao\ProductDao.class
+nl\plaatsoft\plaatservice\dao\UserDao.class
