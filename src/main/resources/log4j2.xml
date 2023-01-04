@@ -1,16 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Configuration>
-    <Appenders>    
-    	<RollingFile name="RollingFile" 
-    		fileName="/var/log/plaatservice.log" 
-    		filePattern="/var/log/plaatservice-%i.log" ignoreExceptions="false">
-        	<PatternLayout pattern="%d [%t] %-5level %logger{36} - %msg%n"/>
-        	<Policies>
-        		<SizeBasedTriggeringPolicy size="10 MB" />
-        	</Policies>
-        	<DefaultRolloverStrategy max="30" />
-    	</RollingFile>
-        
+    <Appenders>            
         <Console name="Console" target="SYSTEM_OUT">
             <PatternLayout pattern="%d [%t] %-5level %logger{36} - %msg%n"/>
         </Console>
@@ -22,8 +12,7 @@
     	<AsyncLogger name="org.hibernate" level="OFF"/>
   	
         <AsyncRoot level="ERROR">
-        	<AppenderRef ref="RollingFile"/>
-            <!--  AppenderRef ref="Console"/-->
+            <AppenderRef ref="Console"/>
         </AsyncRoot>
     </Loggers>
 </Configuration>
