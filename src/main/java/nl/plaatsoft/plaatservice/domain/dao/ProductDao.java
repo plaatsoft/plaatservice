@@ -1,4 +1,4 @@
-package nl.plaatsoft.plaatservice.dao;
+package nl.plaatsoft.plaatservice.domain.dao;
 
 import java.util.Iterator;
 import java.util.List;
@@ -10,7 +10,7 @@ import javax.persistence.NonUniqueResultException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import nl.plaatsoft.plaatservice.model.Product;
+import nl.plaatsoft.plaatservice.domain.model.MProduct;
 
 /**
  * The Class ProductDao.
@@ -40,8 +40,8 @@ public class ProductDao {
      * @return the list
      */
     @SuppressWarnings("unchecked")
-	public List<Product> findAll() {
-        return entityManager.createQuery("from Product").getResultList();
+	public List<MProduct> findAll() {
+        return entityManager.createQuery("from MProduct").getResultList();
     }
    
     /**
@@ -50,8 +50,8 @@ public class ProductDao {
      * @param id the id
      * @return the optional
      */
-    public Optional<Product> findById(long id) {
-    	Product product = entityManager.find(Product.class, id);
+    public Optional<MProduct> findById(long id) {
+    	MProduct product = entityManager.find(MProduct.class, id);
         if (product != null) {
         	return Optional.of(product);
         } else {
@@ -67,10 +67,10 @@ public class ProductDao {
      * @param os the os
      * @return single
      */
-    public Optional<Product> findByName(String name, String version, String os) {
+    public Optional<MProduct> findByName(String name, String version, String os) {
     	
     	 try {    		     	
-    		 Product product = entityManager.createQuery("SELECT a FROM Product a WHERE a.name=:name AND a.version=:version AND a.os=:os", Product.class)
+    		 MProduct product = entityManager.createQuery("SELECT a FROM MProduct a WHERE a.name=:name AND a.version=:version AND a.os=:os", MProduct.class)
                 .setParameter("name", name)
                 .setParameter("version", version)
                 .setParameter("os", os)
@@ -89,7 +89,7 @@ public class ProductDao {
     		 log.warn(e.getMessage());
     	 
     		 // Not found, create it!
-    		 Product product = new Product(name, version, os);
+    		 MProduct product = new MProduct(name, version, os);
     		 return save(product);
     	 }    	
     }
@@ -101,10 +101,10 @@ public class ProductDao {
      * @param name the name
      * @return the single
      */
-    public Optional<Product> findByName(String name) {
+    public Optional<MProduct> findByName(String name) {
     	
     	 try {    		     	
-    		 Product product = entityManager.createQuery("SELECT a FROM Product a WHERE a.name=:name ORDER BY a.version desc", Product.class)
+    		 MProduct product = entityManager.createQuery("SELECT a FROM MProduct a WHERE a.name=:name ORDER BY a.version desc", MProduct.class)
                 .setParameter("name", name)
                 .setMaxResults(1)
                 .getSingleResult();
@@ -123,7 +123,7 @@ public class ProductDao {
      * @param product the product
      * @return the optional
      */
-    public Optional<Product> save(Product product) {
+    public Optional<MProduct> save(MProduct product) {
         try {
             entityManager.getTransaction().begin();
             entityManager.persist(product);
@@ -139,10 +139,10 @@ public class ProductDao {
      * Truncate.
      */
     public void truncate() {
-    	List<Product> products = findAll();
-    	Iterator<Product> iter = products.iterator();
+    	List<MProduct> products = findAll();
+    	Iterator<MProduct> iter = products.iterator();
  	    while (iter.hasNext()) {
- 	    	Product product = iter.next();
+ 	    	MProduct product = iter.next();
  	    	entityManager.remove(product); 
  	    }
      }

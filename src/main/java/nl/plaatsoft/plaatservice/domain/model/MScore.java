@@ -1,4 +1,4 @@
-package nl.plaatsoft.plaatservice.model;
+package nl.plaatsoft.plaatservice.domain.model;
 
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -15,7 +15,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "scores")
-public class Score {
+public class MScore {
 
 	/** The sid. */
     @Id
@@ -24,11 +24,11 @@ public class Score {
     
     /** The product. */
     @ManyToOne(fetch = FetchType.EAGER)
-    private Product product;
+    private MProduct product;
         
     /** The user. */
     @ManyToOne(fetch = FetchType.EAGER)
-    private User user;
+    private MUser user;
     	
 	/** The dt. */
 	private long dt;
@@ -42,7 +42,7 @@ public class Score {
 	/**
 	 * Instantiates a new score.
 	 */
-	public Score() {    	  
+	public MScore() {    	  
 	}
 	  
 	/**
@@ -54,7 +54,7 @@ public class Score {
 	 * @param score the score
 	 * @param level the level
 	 */
-	public Score(User user, Product product, long dt, long score, long level) {
+	public MScore(MUser user, MProduct product, long dt, long score, long level) {
 		super();
 		this.user = user;
 		this.product = product;		
@@ -106,7 +106,7 @@ public class Score {
 	 *
 	 * @return the product
 	 */
-	public Product getProduct() {
+	public MProduct getProduct() {
 		return product;
 	}
 
@@ -115,7 +115,7 @@ public class Score {
 	 *
 	 * @param product the new product
 	 */
-	public void setProduct(Product product) {
+	public void setProduct(MProduct product) {
 		this.product = product;
 	}
 
@@ -124,7 +124,7 @@ public class Score {
 	 *
 	 * @return the user
 	 */
-	public User getUser() {
+	public MUser getUser() {
 		return user;
 	}
 
@@ -133,7 +133,7 @@ public class Score {
 	 *
 	 * @param user the new user
 	 */
-	public void setUser(User user) {
+	public void setUser(MUser user) {
 		this.user = user;
 	}
 

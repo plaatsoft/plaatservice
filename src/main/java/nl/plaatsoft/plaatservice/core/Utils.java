@@ -15,9 +15,9 @@ import org.apache.logging.log4j.Logger;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import nl.plaatsoft.plaatservice.model.Product;
-import nl.plaatsoft.plaatservice.model.Score;
-import nl.plaatsoft.plaatservice.model.User;
+import nl.plaatsoft.plaatservice.domain.model.MProduct;
+import nl.plaatsoft.plaatservice.domain.model.MScore;
+import nl.plaatsoft.plaatservice.domain.model.MUser;
 
 /**
  * The Class Utils.
@@ -64,7 +64,7 @@ public class Utils {
 	 * @param user the user
 	 * @return the json user
 	 */
-	public static String getJsonUser(User user) {
+	public static String getJsonUser(MUser user) {
 		
 		JSONObject obj = new JSONObject();
 		
@@ -81,7 +81,7 @@ public class Utils {
 	 * @param product the product
 	 * @return the json product
 	 */
-	public static String getJsonProduct(Product product) {
+	public static String getJsonProduct(MProduct product) {
 		
 		JSONObject obj = new JSONObject();
 		
@@ -99,14 +99,14 @@ public class Utils {
 	 * @param scores the scores
 	 * @return the json scores
 	 */
-	public static String getJsonScores(List<Score> scores) {
+	public static String getJsonScores(List<MScore> scores) {
 				
 		JSONArray array = new JSONArray();
 		
-		Iterator<Score> iter = scores.iterator();
+		Iterator<MScore> iter = scores.iterator();
 		while (iter.hasNext()) {
 		    			 
-		  	Score score = iter.next();
+		  	MScore score = iter.next();
 		    	
 		  	JSONObject obj2 = new JSONObject();
 		   	obj2.put("nickname", score.getUser().getNickname());

@@ -1,4 +1,4 @@
-package nl.plaatsoft.plaatservice.dao;
+package nl.plaatsoft.plaatservice.domain.dao;
 
 import java.util.Iterator;
 import java.util.List;
@@ -8,9 +8,9 @@ import javax.persistence.EntityManager;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import nl.plaatsoft.plaatservice.model.Product;
-import nl.plaatsoft.plaatservice.model.Score;
-import nl.plaatsoft.plaatservice.model.User;
+import nl.plaatsoft.plaatservice.domain.model.MProduct;
+import nl.plaatsoft.plaatservice.domain.model.MScore;
+import nl.plaatsoft.plaatservice.domain.model.MUser;
 
 /**
  * The Class ScoreDao.
@@ -40,8 +40,8 @@ public class ScoreDao {
      * @return the list
      */
     @SuppressWarnings("unchecked")
-	public List<Score> findAll() {
-        return entityManager.createQuery("from Score").getResultList();
+	public List<MScore> findAll() {
+        return entityManager.createQuery("from MScore").getResultList();
     }
    
     /**
@@ -52,9 +52,9 @@ public class ScoreDao {
      * @param os the os
      * @return the list
      */
-    public List<Score> findByUserScore(User user, Product product) {
+    public List<MScore> findByUserScore(MUser user, MProduct product) {
     	
-    	 return entityManager.createQuery("SELECT a FROM Score a WHERE a.user=:user AND a.product=:product ORDER BY a.score desc", Score.class)
+    	 return entityManager.createQuery("SELECT a FROM MScore a WHERE a.user=:user AND a.product=:product ORDER BY a.score desc", MScore.class)
                 .setParameter("user", user)
                 .setParameter("product", product)
                 .setMaxResults(15)
@@ -69,9 +69,9 @@ public class ScoreDao {
      * @param os the os
      * @return the list
      */
-    public List<Score> findByTopScore(Product product) {
+    public List<MScore> findByTopScore(MProduct product) {
     	
-    	 return entityManager.createQuery("SELECT a FROM Score a WHERE a.product=:product ORDER BY a.score desc", Score.class)
+    	 return entityManager.createQuery("SELECT a FROM MScore a WHERE a.product=:product ORDER BY a.score desc", MScore.class)
                 .setParameter("product", product)
                 .setMaxResults(15)
                 .getResultList();
@@ -80,10 +80,10 @@ public class ScoreDao {
     /**
      * Save.
      *
-     * @param Score the Score
+     * @param MScore the Score
      * @return the optional
      */
-    public Optional<Score> save(Score score) {
+    public Optional<MScore> save(MScore score) {
         try {
             entityManager.getTransaction().begin();
             entityManager.persist(score);
@@ -100,10 +100,10 @@ public class ScoreDao {
      * Truncate.
      */
     public void truncate() {
-    	List<Score> scores = findAll();
-    	Iterator<Score> iter = scores.iterator();
+    	List<MScore> scores = findAll();
+    	Iterator<MScore> iter = scores.iterator();
  	    while (iter.hasNext()) {
- 	    	Score score = iter.next();
+ 	    	MScore score = iter.next();
  	    	entityManager.remove(score); 
  	    }
      }

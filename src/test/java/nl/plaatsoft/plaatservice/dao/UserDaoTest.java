@@ -8,7 +8,7 @@ import java.util.Optional;
 
 import org.junit.Test;
 
-import nl.plaatsoft.plaatservice.model.User;
+import nl.plaatsoft.plaatservice.domain.model.MUser;
 
 /**
  * The Class ProductDaoTest.
@@ -23,13 +23,13 @@ public class UserDaoTest extends GeneralDaoTest  {
 	@Test
 	public void findById() {
 		        				
-		User user1 = userDao.save(new User("127.0.0.1", "lplaat", "leo", "Netherlands", "Gouda")).get();              
+		MUser user1 = userDao.save(new MUser("127.0.0.1", "lplaat", "leo", "Netherlands", "Gouda")).get();              
 		assertEquals(1, user1.getUid());    
 		
-		User user2 = userDao.save(new User("127.0.0.1", "bplaat", "leo", "Netherlands", "Gouda")).get();              
+		MUser user2 = userDao.save(new MUser("127.0.0.1", "bplaat", "leo", "Netherlands", "Gouda")).get();              
 		assertEquals(2, user2.getUid());    
 		
-        User user3 = userDao.findById(1).get();        
+        MUser user3 = userDao.findById(1).get();        
         assertEquals(1, user3.getUid());        
 	}
 	
@@ -39,11 +39,11 @@ public class UserDaoTest extends GeneralDaoTest  {
 	@Test
 	public void findAll() {
 		        				
-		userDao.save(new User("127.0.0.1", "wplaat", "willie", "Netherlands", "Gouda"));
-		userDao.save(new User("127.0.0.1", "bplaat", "bassie", "Netherlands", "Gouda"));
-		userDao.save(new User("127.0.0.1", "lplaat", "leo", "Netherlands", "Gouda"));
+		userDao.save(new MUser("127.0.0.1", "wplaat", "willie", "Netherlands", "Gouda"));
+		userDao.save(new MUser("127.0.0.1", "bplaat", "bassie", "Netherlands", "Gouda"));
+		userDao.save(new MUser("127.0.0.1", "lplaat", "leo", "Netherlands", "Gouda"));
                
-        List<User> users = userDao.findAll();
+        List<MUser> users = userDao.findAll();
         
         assertEquals(3, users.size());        
 	}
@@ -54,17 +54,17 @@ public class UserDaoTest extends GeneralDaoTest  {
 	@Test
 	public void findExistingUser() {
 		    	        	        
-		User user1 = userDao.save(new User("127.0.0.1", "wplaat", "willie", "Netherlands", "Gouda")).get();
-		User user2 = userDao.save(new User("127.0.0.1", "bplaat", "bassie", "Netherlands", "Gouda")).get();
+		MUser user1 = userDao.save(new MUser("127.0.0.1", "wplaat", "willie", "Netherlands", "Gouda")).get();
+		MUser user2 = userDao.save(new MUser("127.0.0.1", "bplaat", "bassie", "Netherlands", "Gouda")).get();
 	               
 		assertEquals(1, user1.getUid());
 		assertEquals(2, user2.getUid());  
 		
-	    Optional<User> user =  userDao.findByName("127.0.0.1", "wplaat", "willie", "Netherlands", "Gouda");
+	    Optional<MUser> user =  userDao.findByName("127.0.0.1", "wplaat", "willie", "Netherlands", "Gouda");
 	    
 	    assertEquals(user1.getUid(), user.get().getUid());   
 	    
-	    List<User> users = userDao.findAll();
+	    List<MUser> users = userDao.findAll();
         
         assertEquals(2, users.size());      
 	}
@@ -75,19 +75,19 @@ public class UserDaoTest extends GeneralDaoTest  {
 	@Test
 	public void findNewUser() {
 		    	        	        
-		User user1 = userDao.save(new User("127.0.0.1", "wplaat", "willie", "Netherlands", "Gouda")).get();
-		User user2 = userDao.save(new User("127.0.0.1", "bplaat", "bassie", "Netherlands", "Gouda")).get();
+		MUser user1 = userDao.save(new MUser("127.0.0.1", "wplaat", "willie", "Netherlands", "Gouda")).get();
+		MUser user2 = userDao.save(new MUser("127.0.0.1", "bplaat", "bassie", "Netherlands", "Gouda")).get();
 	               
 		assertEquals(1, user1.getUid());
 		assertEquals(2, user2.getUid()); 
 	               
 	    // New entry is created
-		Optional<User> user =  userDao.findByName("127.0.0.1", "wplaat1", "willie", "Netherlands", "Gouda");   
+		Optional<MUser> user =  userDao.findByName("127.0.0.1", "wplaat1", "willie", "Netherlands", "Gouda");   
 	    
 	    assertTrue(user.isPresent()==true);   
 	    assertEquals(3, user.get().getUid());   
 	    
-	    List<User> users = userDao.findAll();
+	    List<MUser> users = userDao.findAll();
         
         assertEquals(3, users.size());      
 	}
@@ -98,10 +98,10 @@ public class UserDaoTest extends GeneralDaoTest  {
 	@Test
 	public void findbyNameError() {
 		    	        	        
-		userDao.save(new User("127.0.0.1", "wplaat", "willie", "Netherlands", "Gouda"));
-		userDao.save(new User("127.0.0.1", "wplaat", "willie", "Netherlands", "Gouda"));
+		userDao.save(new MUser("127.0.0.1", "wplaat", "willie", "Netherlands", "Gouda"));
+		userDao.save(new MUser("127.0.0.1", "wplaat", "willie", "Netherlands", "Gouda"));
 	               		
-	    Optional<User> user =  userDao.findByName("127.0.0.1", "wplaat", "willie", "Netherlands", "Gouda");
+	    Optional<MUser> user =  userDao.findByName("127.0.0.1", "wplaat", "willie", "Netherlands", "Gouda");
 	    
 	    assertTrue(user.isPresent()==false);       
 	}

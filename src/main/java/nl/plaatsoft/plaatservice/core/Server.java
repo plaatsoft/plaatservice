@@ -24,12 +24,12 @@ import org.apache.http.util.EntityUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import nl.plaatsoft.plaatservice.dao.ProductDao;
-import nl.plaatsoft.plaatservice.dao.ScoreDao;
-import nl.plaatsoft.plaatservice.dao.UserDao;
-import nl.plaatsoft.plaatservice.model.Product;
-import nl.plaatsoft.plaatservice.model.Score;
-import nl.plaatsoft.plaatservice.model.User;
+import nl.plaatsoft.plaatservice.domain.dao.ProductDao;
+import nl.plaatsoft.plaatservice.domain.dao.ScoreDao;
+import nl.plaatsoft.plaatservice.domain.dao.UserDao;
+import nl.plaatsoft.plaatservice.domain.model.MProduct;
+import nl.plaatsoft.plaatservice.domain.model.MScore;
+import nl.plaatsoft.plaatservice.domain.model.MUser;
 
 /**
  * The Class Server.
@@ -69,11 +69,11 @@ public class Server {
 						
 		if ((pid>0) && (uid>0)) {
 			
-			Optional<User> user = userDao.findById(uid);
-			Optional<Product> product = productDao.findById(pid);
+			Optional<MUser> user = userDao.findById(uid);
+			Optional<MProduct> product = productDao.findById(pid);
 			
 			if (user.isPresent() && (product.isPresent())) {
-				List <Score> scores = scoreDao.findByUserScore(user.get(), product.get());
+				List <MScore> scores = scoreDao.findByUserScore(user.get(), product.get());
 				return Utils.getJsonScores(scores);
 			}
 		} 
@@ -92,11 +92,11 @@ public class Server {
 		
 		if (pid>0) {
 			
-			Optional<Product> product = productDao.findById(pid);
+			Optional<MProduct> product = productDao.findById(pid);
 			
 			if (product.isPresent()) {
 			
-				List <Score> scores = scoreDao.findByTopScore(product.get());		     
+				List <MScore> scores = scoreDao.findByTopScore(product.get());		     
 				return Utils.getJsonScores(scores);
 			}
 		} 
@@ -119,12 +119,12 @@ public class Server {
 				
 		if ((pid>0) && (uid>0) && (dt>0)) {
 			
-			Optional<User> user = userDao.findById(uid);
-			Optional<Product> product = productDao.findById(pid);
+			Optional<MUser> user = userDao.findById(uid);
+			Optional<MProduct> product = productDao.findById(pid);
 			
 			if (user.isPresent() && (product.isPresent())) {
 				
-				Score score = new Score();
+				MScore score = new MScore();
 				score.setUser(user.get());
 				score.setProduct(product.get());
 				score.setDt(dt);
@@ -151,7 +151,7 @@ public class Server {
     	
     	if ((ip!=null) && (username!=null) && (nickname!=null)) {
     		
-    		Optional<User> user = userDao.findByName(ip, username);
+    		Optional<MUser> user = userDao.findByName(ip, username);
     	
     		if (user.isPresent()) {
     			user.get().setNickname(nickname);
@@ -177,7 +177,7 @@ public class Server {
     	String city = Utils.getParameter(uri, "city");
     	
     	if ((ip!=null) && (username!=null) && (nickname!=null) && (country!=null) && (city!=null)) {
-    		Optional<User> user = userDao.findByName(ip, username, nickname, country, city);
+    		Optional<MUser> user = userDao.findByName(ip, username, nickname, country, city);
     		if (user.isPresent()) {
     			return Utils.getJsonUser(user.get());
     		} 
@@ -190,7 +190,7 @@ public class Server {
     	String name = Utils.getParameter(uri, "product");
     	
     	if ((name!=null)) {
-    		Optional<Product> product = productDao.findByName(name);
+    		Optional<MProduct> product = productDao.findByName(name);
     	    		
     		if (product.isPresent()) {
     		    			
@@ -213,7 +213,7 @@ public class Server {
     	String os = Utils.getParameter(uri, "os");
     	
     	if ((name!=null) && (version!=null) && (os!=null)) {
-    		Optional<Product> product = productDao.findByName(name, version, os);
+    		Optional<MProduct> product = productDao.findByName(name, version, os);
     	                	         	   		    		
     		if (product.isPresent()) {
     			return Utils.getJsonProduct(product.get());

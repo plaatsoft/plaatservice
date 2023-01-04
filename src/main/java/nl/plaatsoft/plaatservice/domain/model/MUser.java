@@ -1,4 +1,4 @@
-package nl.plaatsoft.plaatservice.model;
+package nl.plaatsoft.plaatservice.domain.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -13,7 +13,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "users")
-public class User {
+public class MUser {
     
 	/** The uid. */
     @Id
@@ -38,7 +38,7 @@ public class User {
     /**
      * Instantiates a new user.
      */
-    public User() {    	  
+    public MUser() {    	  
     }
     
     /**
@@ -50,7 +50,7 @@ public class User {
      * @param country the country
      * @param city the city
      */
-    public User(String ip, String username, String nickname, String country, String city) {
+    public MUser(String ip, String username, String nickname, String country, String city) {
 		super();
 		this.ip = ip;
 		this.username = username;

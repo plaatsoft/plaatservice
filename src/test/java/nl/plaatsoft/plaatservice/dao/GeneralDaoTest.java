@@ -10,6 +10,9 @@ import javax.persistence.Persistence;
 import org.junit.Before;
 
 import nl.plaatsoft.plaatservice.core.Config;
+import nl.plaatsoft.plaatservice.domain.dao.ProductDao;
+import nl.plaatsoft.plaatservice.domain.dao.ScoreDao;
+import nl.plaatsoft.plaatservice.domain.dao.UserDao;
 
 /**
  * The Class GeneralDaoTest.

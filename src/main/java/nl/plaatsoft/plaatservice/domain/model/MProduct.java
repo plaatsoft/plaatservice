@@ -1,4 +1,4 @@
-package nl.plaatsoft.plaatservice.model;
+package nl.plaatsoft.plaatservice.domain.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -13,7 +13,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "products")
-public class Product {
+public class MProduct {
     
 	/** The pid. */
     @Id
@@ -32,7 +32,7 @@ public class Product {
     /**
      * Instantiates a new product.
      */
-    public Product() {    	  
+    public MProduct() {    	  
     }
     	
 	/**
@@ -42,7 +42,7 @@ public class Product {
 	 * @param version the version
 	 * @param os the os
 	 */
-	public Product(String name, String version, String os) {
+	public MProduct(String name, String version, String os) {
 		super();
 		this.name = name;
 		this.version = version;

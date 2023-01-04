@@ -35,3 +35,4 @@ v0.5.2 @wplaat (04-01-2022)
 - Enable Log to console
 - Move to Java 11
 - Added start / stop batch script
+- Switch database engine from MariaDB to H2

@@ -1,4 +1,4 @@
-package nl.plaatsoft.plaatservice.dao;
+package nl.plaatsoft.plaatservice.domain.dao;
 
 import java.util.Iterator;
 import java.util.List;
@@ -10,7 +10,7 @@ import javax.persistence.NonUniqueResultException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import nl.plaatsoft.plaatservice.model.User;
+import nl.plaatsoft.plaatservice.domain.model.MUser;
 
 /**
  * The Class UserDao.
@@ -40,8 +40,8 @@ public class UserDao {
      * @param id the id
      * @return the optional
      */
-    public Optional<User> findById(long id) {
-    	User user = entityManager.find(User.class, id);
+    public Optional<MUser> findById(long id) {
+    	MUser user = entityManager.find(MUser.class, id);
         if (user != null) {
         	return Optional.of(user);
         } else {
@@ -54,8 +54,8 @@ public class UserDao {
      * @return the list
      */
     @SuppressWarnings("unchecked")
-	public List<User> findAll() {
-        return entityManager.createQuery("from User").getResultList();
+	public List<MUser> findAll() {
+        return entityManager.createQuery("from MUser").getResultList();
     }
    
     /**
@@ -65,10 +65,10 @@ public class UserDao {
      * @param username the username
      * @return the optional
      */
-     public Optional<User> findByName(String ip, String username) {
+     public Optional<MUser> findByName(String ip, String username) {
     	   	   	
     	 try {
-    		 User user = entityManager.createQuery("SELECT a FROM User a WHERE a.username=:username AND a.ip=:ip", User.class)
+    		 MUser user = entityManager.createQuery("SELECT a FROM MUser a WHERE a.username=:username AND a.ip=:ip", MUser.class)
                .setParameter("username", username)
                .setParameter("ip", ip).getSingleResult();
   		   		 
@@ -89,10 +89,10 @@ public class UserDao {
      * @param city the city
      * @return the list
      */
-    public Optional<User> findByName(String ip, String username, String nickname, String country, String city) {
+    public Optional<MUser> findByName(String ip, String username, String nickname, String country, String city) {
     	
     	 try {    		     	
-    		 User user = entityManager.createQuery("SELECT a FROM User a WHERE a.username=:username AND a.ip=:ip", User.class)
+    		 MUser user = entityManager.createQuery("SELECT a FROM MUser a WHERE a.username=:username AND a.ip=:ip", MUser.class)
                 .setParameter("username", username)
                 .setParameter("ip", ip)
                 .getSingleResult();
@@ -110,7 +110,7 @@ public class UserDao {
     		 log.warn(e.getMessage());
     	 
     		 // Not found, create it!
-    		 User user = new User(ip, username, nickname, country, city);
+    		 MUser user = new MUser(ip, username, nickname, country, city);
     		 return save(user);
     	 }    		
     }
@@ -121,7 +121,7 @@ public class UserDao {
      * @param user the user
      * @return the optional
      */
-    public Optional<User> save(User user) {
+    public Optional<MUser> save(MUser user) {
         try {
             entityManager.getTransaction().begin();
             entityManager.persist(user);
@@ -137,10 +137,10 @@ public class UserDao {
      * Truncate.
      */
     public void truncate() {
-    	List<User> users = findAll();
-    	Iterator<User> iter = users.iterator();
+    	List<MUser> users = findAll();
+    	Iterator<MUser> iter = users.iterator();
  	    while (iter.hasNext()) {
- 	    	User user = iter.next();
+ 	    	MUser user = iter.next();
  	    	entityManager.remove(user); 
  	    }
      }
