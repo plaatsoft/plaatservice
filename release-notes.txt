@@ -28,3 +28,7 @@ v0.5.0 @wplaat
 v0.5.1 @wplaat
 - Upgrade POMs to latest version
 - Rename tables names else H2 does not like it
+
+v0.5.2 @wplaat (04-01-2022)
+- Added product PlaatDomotica 0.7.1
+- Restructure GIT REPO. Now it contains the only java version
