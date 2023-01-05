@@ -30,7 +30,7 @@ v0.5.1 @wplaat
 - Rename tables names else H2 does not like it
 
 v0.5.2 @wplaat (04-01-2022)
-- Added product PlaatDomotica 0.7.1
+- Added product PlaatDomotica 0.7.0
 - Restructure GIT REPO. Now it contains the only java version
 - Enable Log to console
 - Move to Java 11
