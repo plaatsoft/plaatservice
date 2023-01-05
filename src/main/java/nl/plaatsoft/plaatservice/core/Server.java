@@ -231,7 +231,7 @@ public class Server {
 					
 		TreeMap<String, String> items = new TreeMap<String, String>();
 		
-		items.put("PlaatDomotica", "0.7.1");
+		items.put("PlaatDomotica", "0.7.0");
 		items.put("PlaatEnergy", "1.7");
 		items.put("PlaatScrum", "1.3");
 		items.put("PlaatProtect", "0.6.0");
