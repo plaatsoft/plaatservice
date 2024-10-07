@@ -1,0 +1,15 @@
+[Unit]
+Description=PlaatService
+Requires=network.target remote-fs.target
+After=network.target remote-fs.target
+
+[Service]
+Type=simple
+User=pi
+WorkingDirectory=/opt/plaatservice
+ExecStart=/usr/bin/nohup /usr/bin/java -Duser.timezone="Europe/Amsterdam" -jar /opt/plaatservice/plaatservice-0.5.2-SNAPSHOT.jar &
+Restart=on-failure
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target
