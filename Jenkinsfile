@@ -20,7 +20,7 @@ pipeline {
 
         stage('Build') {
             steps {
-                echo "Building image: ${PACKAGE_NAME}"
+                echo "Building image: ${PACKAGE_NAME} ${SIGRID_URL}"
                 sh "mvn clean package"
             }
 
