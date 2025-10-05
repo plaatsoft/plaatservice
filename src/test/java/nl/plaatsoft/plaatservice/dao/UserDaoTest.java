@@ -1,14 +1,13 @@
 package nl.plaatsoft.plaatservice.dao;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
-
 import java.util.List;
 import java.util.Optional;
 
 import org.junit.Test;
 
-import nl.plaatsoft.plaatservice.domain.model.MUser;
+import nl.plaatsoft.plaatservice.model.MUser;
+
+import static org.junit.Assert.*;
 
 /**
  * The Class ProductDaoTest.
@@ -82,9 +81,9 @@ public class UserDaoTest extends GeneralDaoTest  {
 		assertEquals(2, user2.getUid()); 
 	               
 	    // New entry is created
-		Optional<MUser> user =  userDao.findByName("127.0.0.1", "wplaat1", "willie", "Netherlands", "Gouda");   
-	    
-	    assertTrue(user.isPresent()==true);   
+		Optional<MUser> user =  userDao.findByName("127.0.0.1", "wplaat1", "willie", "Netherlands", "Gouda");
+
+	    assertTrue(user.isPresent());
 	    assertEquals(3, user.get().getUid());   
 	    
 	    List<MUser> users = userDao.findAll();
@@ -103,6 +102,6 @@ public class UserDaoTest extends GeneralDaoTest  {
 	               		
 	    Optional<MUser> user =  userDao.findByName("127.0.0.1", "wplaat", "willie", "Netherlands", "Gouda");
 	    
-	    assertTrue(user.isPresent()==false);       
+	    assertFalse(user.isPresent());
 	}
 }

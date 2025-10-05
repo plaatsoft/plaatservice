@@ -15,9 +15,9 @@ import org.apache.logging.log4j.Logger;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import nl.plaatsoft.plaatservice.domain.model.MProduct;
-import nl.plaatsoft.plaatservice.domain.model.MScore;
-import nl.plaatsoft.plaatservice.domain.model.MUser;
+import nl.plaatsoft.plaatservice.model.MProduct;
+import nl.plaatsoft.plaatservice.model.MScore;
+import nl.plaatsoft.plaatservice.model.MUser;
 
 /**
  * The Class Utils.

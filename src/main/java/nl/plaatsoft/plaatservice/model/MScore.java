@@ -1,4 +1,4 @@
-package nl.plaatsoft.plaatservice.domain.model;
+package nl.plaatsoft.plaatservice.model;
 
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -17,43 +17,23 @@ import javax.persistence.Table;
 @Table(name = "scores")
 public class MScore {
 
-	/** The sid. */
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private long sid;
     
-    /** The product. */
     @ManyToOne(fetch = FetchType.EAGER)
     private MProduct product;
-        
-    /** The user. */
+
     @ManyToOne(fetch = FetchType.EAGER)
     private MUser user;
-    	
-	/** The dt. */
+
 	private long dt;
-	
-	/** The score. */
 	private long score;
+	private long level;
 	
-	/** The level. */
-	private long level;	
-	
-	/**
-	 * Instantiates a new score.
-	 */
-	public MScore() {    	  
+	public MScore() {
 	}
 	  
-	/**
-	 * Instantiates a new score.
-	 *
-	 * @param user the user
-	 * @param product the product
-	 * @param dt the dt
-	 * @param score the score
-	 * @param level the level
-	 */
 	public MScore(MUser user, MProduct product, long dt, long score, long level) {
 		super();
 		this.user = user;
@@ -63,121 +43,53 @@ public class MScore {
 		this.level = level;
 	}
 	
-	
-	/**
-	 * To string.
-	 *
-	 * @return the string
-	 */
 	@Override
 	public String toString() {
 		return "Score [sid=" + sid + ", user=" + user+ ", product=" + product + ", dt=" + dt + ", score=" + score + ", level="+ level + "]";
 	}
 	
-	/**
-	 * Gets the sid.
-	 *
-	 * @return the sid
-	 */
 	public long getSid() {
 		return sid;
 	}
 	
-	/**
-	 * Sets the sid.
-	 *
-	 * @param id the new sid
-	 */
 	public void setId(Integer sid) {
 		this.sid = sid;
 	}
 		
-	/**
-	 * Gets the dt.
-	 *
-	 * @return the dt
-	 */
 	public long getDt() {
 		return dt;
 	}
-	
-	/**
-	 * Gets the product.
-	 *
-	 * @return the product
-	 */
+
 	public MProduct getProduct() {
 		return product;
 	}
 
-	/**
-	 * Sets the product.
-	 *
-	 * @param product the new product
-	 */
 	public void setProduct(MProduct product) {
 		this.product = product;
 	}
 
-	/**
-	 * Gets the user.
-	 *
-	 * @return the user
-	 */
 	public MUser getUser() {
 		return user;
 	}
 
-	/**
-	 * Sets the user.
-	 *
-	 * @param user the new user
-	 */
-	public void setUser(MUser user) {
-		this.user = user;
-	}
+	public void setUser(MUser user) { this.user = user; }
 
-	/**
-	 * Sets the dt.
-	 *
-	 * @param dt the new dt
-	 */
 	public void setDt(long dt) {
 		this.dt = dt;
 	}
 	
-	/**
-	 * Gets the score.
-	 *
-	 * @return the score
-	 */
 	public long getScore() {
 		return score;
 	}
 	
-	/**
-	 * Sets the score.
-	 *
-	 * @param score the new score
-	 */
 	public void setScore(long score) {
 		this.score = score;
 	}
 	
-	/**
-	 * Gets the level.
-	 *
-	 * @return the level
-	 */
 	public long getLevel() {
 		return level;
 	}
 	
-	/**
-	 * Sets the level.
-	 *
-	 * @param level the new level
-	 */
 	public void setLevel(long level) {
 		this.level = level;
 	}

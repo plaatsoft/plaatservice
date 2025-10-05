@@ -1,4 +1,4 @@
-package nl.plaatsoft.plaatservice.domain.dao;
+package nl.plaatsoft.plaatservice.dao;
 
 import java.util.Iterator;
 import java.util.List;
@@ -10,7 +10,7 @@ import javax.persistence.NonUniqueResultException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import nl.plaatsoft.plaatservice.domain.model.MUser;
+import nl.plaatsoft.plaatservice.model.MUser;
 
 /**
  * The Class UserDao.

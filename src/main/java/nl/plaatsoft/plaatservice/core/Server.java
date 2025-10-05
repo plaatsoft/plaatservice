@@ -24,12 +24,12 @@ import org.apache.http.util.EntityUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import nl.plaatsoft.plaatservice.domain.dao.ProductDao;
-import nl.plaatsoft.plaatservice.domain.dao.ScoreDao;
-import nl.plaatsoft.plaatservice.domain.dao.UserDao;
-import nl.plaatsoft.plaatservice.domain.model.MProduct;
-import nl.plaatsoft.plaatservice.domain.model.MScore;
-import nl.plaatsoft.plaatservice.domain.model.MUser;
+import nl.plaatsoft.plaatservice.dao.ProductDao;
+import nl.plaatsoft.plaatservice.dao.ScoreDao;
+import nl.plaatsoft.plaatservice.dao.UserDao;
+import nl.plaatsoft.plaatservice.model.MProduct;
+import nl.plaatsoft.plaatservice.model.MScore;
+import nl.plaatsoft.plaatservice.model.MUser;
 
 /**
  * The Class Server.

@@ -10,9 +10,9 @@ import org.apache.logging.log4j.Logger;
 
 import org.junit.Test;
 
-import nl.plaatsoft.plaatservice.domain.model.MProduct;
-import nl.plaatsoft.plaatservice.domain.model.MScore;
-import nl.plaatsoft.plaatservice.domain.model.MUser;
+import nl.plaatsoft.plaatservice.model.MProduct;
+import nl.plaatsoft.plaatservice.model.MScore;
+import nl.plaatsoft.plaatservice.model.MUser;
 
 
 /**

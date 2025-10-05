@@ -1,4 +1,4 @@
-package nl.plaatsoft.plaatservice.domain.model;
+package nl.plaatsoft.plaatservice.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -28,13 +28,7 @@ public class MProduct {
     
     /** The os. */
     private String os;
-    
-    /**
-     * Instantiates a new product.
-     */
-    public MProduct() {    	  
-    }
-    	
+
 	/**
 	 * Instantiates a new product.
 	 *

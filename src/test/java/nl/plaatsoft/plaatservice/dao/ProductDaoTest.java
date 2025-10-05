@@ -8,7 +8,7 @@ import java.util.Optional;
 
 import org.junit.Test;
 
-import nl.plaatsoft.plaatservice.domain.model.MProduct;
+import nl.plaatsoft.plaatservice.model.MProduct;
 
 /**
  * The Class ProductDaoTest.
